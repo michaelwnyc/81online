@@ -2,9 +2,11 @@
 ========
 
 =====================!!!!! NOT READY FOR PRODUCTION USE !!!!! ============================
+                     
                      Add user function has a major design fault 
-                     and also the install script is not ready due
+                     and also the install script is not ready due 
                      to this design fault.
+                     
 ==========================================================================================
 
 This projects is a front-end user management platform based on OpenVPN.
