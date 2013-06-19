@@ -99,4 +99,8 @@ It right now has the following features:
    If any part of the above code is already in your configuration file, don't just add it, but modify the existing
    config to above.
    
-   The user runs openvpn process needs to have executing permission on connect.sh and disconnect.sh.
+   Copy connect.sh and disconnect.sh from Script directory to the directory where OpenVPN is installed.
+   /etc/openvpn for Debian.
+   
+   The user runs openvpn process needs to have executing permission on connect.sh and disconnect.sh. You need to change
+   the database connection information in connect.sh and disconnect.sh
