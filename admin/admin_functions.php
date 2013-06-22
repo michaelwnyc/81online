@@ -31,14 +31,15 @@ else if(isset($_POST['new_user'])){
 	$cycle = mysql_real_escape_string($posts["cycle"]);
 	$quota_bytes = mysql_real_escape_string($posts["quota_bytes"])*1024*1024*1024;
 	$enable = mysql_real_escape_string($posts["enable"]);
+	$level = mysql_real_escape_string($posts["level"]);
 	$admin_level = mysql_real_escape_string($posts["admin_level"]);
-	echo new_user(mysql_real_escape_string($posts["username"]),mysql_real_escape_string($posts["password"]),mysql_real_escape_string($posts["repassword"]),$active,$name,$email,$cycle,$quota_bytes,$enable,$admin_level);
+	echo new_user(mysql_real_escape_string($posts["username"]),mysql_real_escape_string($posts["password"]),mysql_real_escape_string($posts["repassword"]),$active,$name,$email,$cycle,$quota_bytes,$enable,$level,$admin_level);
 }
 else if(isset($_POST['del_user'])){
 	session_id($_GET['s']);
 	session_start();
 	//echo $_SESSION["username"];
-	echo del_user($_SESSION["username"],mysql_real_escape_string($posts["username"]),mysql_real_escape_string($posts["password"]));
+	echo del_user($_SESSION["username"],mysql_real_escape_string($posts["username"]),mysql_real_escape_string($posts["password"]),mysql_real_escape_string($posts["admin_level"]));
 }
 
 /**
@@ -124,7 +125,7 @@ function pwchange($username,$oldpassword,$newpassword,$renewpassword){
  * 将相应的栏目信息添加到数据库中
  * 这里可以以后尝试改为将一个数组传送进来，以便添加其他信息。
  */
-function new_user($username,$password,$repassword,$active,$name,$email,$cycle,$quota_bytes,$enable,$admin_level){
+function new_user($username,$password,$repassword,$active,$name,$email,$cycle,$quota_bytes,$enable,$level,$admin_level){
 	session_id($_GET['s']);
 	session_start();
 	$sn = session_id();
@@ -132,13 +133,13 @@ function new_user($username,$password,$repassword,$active,$name,$email,$cycle,$q
 		echo('两次输入的新密码不正确,请重新输入!密码应在6-20位之间。');
 	}else{
 		$table=user;
-		if($admin_level!=1){
+		if($admin_level==1){
 			$sql="INSERT INTO `admin` (`id`,`username`, `password`,  `email`, `admin_level`)
-			VALUES (NULL,'$username', PASSWORD('$password'), '$email', '$admin_level')";
+			VALUES (NULL,'$username', PASSWORD('$password'), '$email', '$level')";
 			mysql_query($sql) or die(mysql_error());
 		}
 		else{
-			$sql="INSERT INTO `user` (`username`, `password`, `active`, `creation`, `name`, `email`, `note`, `admin_level`, `quota_cycle`, `quota_bytes`, `used_quota`, `left_quota`, `enabled`) VALUES ('$username', PASSWORD('$password'), '$active', CURRENT_TIMESTAMP, '$name', '$email', NULL,'$admin_level','$cycle', '$quota_bytes', '0', '$quota_bytes', '$enable')";
+			$sql="INSERT INTO `user` (`username`, `password`, `active`, `creation`, `name`, `email`, `note`, `level`, `quota_cycle`, `quota_bytes`, `used_quota`, `left_quota`, `enabled`) VALUES ('$username', PASSWORD('$password'), '$active', CURRENT_TIMESTAMP, '$name', '$email', NULL,'$level','$cycle', '$quota_bytes', '0', '$quota_bytes', '$enable')";
 			$sql1="INSERT INTO `stat` (`total_used`,`username`, `origin_time`) VALUES ('0','$username', CURRENT_TIMESTAMP)";
 			mysql_query($sql) or die(mysql_error());
 			mysql_query($sql1) or die(mysql_error());
@@ -164,7 +165,7 @@ function new_user($username,$password,$repassword,$active,$name,$email,$cycle,$q
 		$result = mysql_query($sql) or die("wrong");
 		$userInfo = mysql_fetch_array($result);
 		if(!empty($userInfo)){
-			if($admin_level!=1){
+			if($admin_level==1){
 				$sql1 = "DELETE FROM `admin` WHERE `username`='$username'";
 				mysql_query($sql1) or die(mysql_error());
 			}

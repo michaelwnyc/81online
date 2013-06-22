@@ -23,14 +23,6 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 
 	$username          =$_SESSION["username"];
 
-	
-
-	$sql="SELECT admin.admin_level FROM admin,user WHERE admin.username = '$username' AND user.username='$username' AND user.password=admin.password GROUP BY admin.username";
-	
-	$result=mysql_query($sql);
-
-	$admin_row=mysql_fetch_row($result);
-
 	?>
 
 <div align="center">
@@ -78,11 +70,6 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 			</td>
 
 			<td width="auto">
-				<div align="center">
-					<?php if($admin_row[0]==3){ ?>
-					<a href="newuser.php?s=<?php echo ''.$sn.''; ?>">管理界面</a>
-					<?php } ?>
-				</div>
 			</td>
 		</tr>
 	</table>

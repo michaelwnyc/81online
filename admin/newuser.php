@@ -100,8 +100,13 @@
 							</td>
 						</tr>
 						<tr>
-							<td align="right">管理员(默认为1)：&nbsp; <input tabindex="3"
-								type="text" maxlength="1" size="20" name="admin_level" value="1">
+							<td align="right">用户等级(1-3 默认为1)：&nbsp; <input tabindex="3"
+								type="text" maxlength="1" size="20" name="level" value="1">
+							</td>
+						</tr>
+						<tr>
+							<td align="right">管理员(1为是 0为否)：&nbsp; <input tabindex="3"
+								type="text" maxlength="1" size="20" name="admin_level" value="0">
 							</td>
 						</tr>
 						<tr>

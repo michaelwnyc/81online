@@ -35,7 +35,7 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 		}
 	}
 	
-	$sql="SELECT stat.*,user.active,user.quota_cycle,user.quota_bytes,user.left_quota,user.admin_level FROM stat,user WHERE stat.username = '$username' and user.username='$username' GROUP BY stat.username";
+	$sql="SELECT stat.*,user.active,user.quota_cycle,user.quota_bytes,user.left_quota,user.level FROM stat,user WHERE stat.username = '$username' and user.username='$username' GROUP BY stat.username";
 	
 	//mysqli_query("SET NAMES gbk");
 	

@@ -1,5 +1,5 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+//SET time_zone = "-08:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `email` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `note` text COLLATE utf8_unicode_ci,
-  `admin_level` int(1) NOT NULL DEFAULT '1',
+  `level` int(1) NOT NULL DEFAULT '1',
   `quota_cycle` int(10) NOT NULL DEFAULT '30',
   `quota_bytes` bigint(20) NOT NULL DEFAULT '10737418240',
   `used_quota` bigint(20) NOT NULL DEFAULT '0',

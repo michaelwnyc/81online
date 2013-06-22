@@ -84,8 +84,8 @@
 							</TD>
 						</TR>
 						<TR>
-							<TD align=right>用户级别：&nbsp; <INPUT tabIndex=2 type=text
-								maxLength=20 size=20 name=admin_level value=1>
+							<TD align=right>是否管理员（1为是 0为否）：&nbsp; <INPUT tabIndex=2 type=text
+								maxLength=20 size=20 name=admin_level value=0>
 							</TD>
 						</TR>
 						<TR>
