@@ -1,13 +1,13 @@
 81online
 ========
 
-=====================!!!!! NOT READY FOR PRODUCTION USE !!!!! ============================
+===================== READY FOR PRODUCTION USE =======================
                      
-                     Add user function has a major design fault 
-                     and also the install script is not ready due 
-                     to this design fault.
+                     Known bugs have all been fixed
+                     It should be ready for production
+                     use.
                      
-==========================================================================================
+======================================================================
 
 This projects is a front-end user management platform based on OpenVPN.
 
