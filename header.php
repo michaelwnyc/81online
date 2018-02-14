@@ -5,18 +5,18 @@
 include("./data/config.inc.php");
 require_once("functions.php");
 ?>
-<title>VPN状态信息</title>
+<title>VPN Status</title>
 
 <?php
 
-//  防止全局变量造成安全隐患
+// Avoid Global Variable Risk
 $admin = false;
 session_id($_GET['s']);
 session_start();
 $sn=session_id();
-//  判断是否登陆
+// Check if logged in.
 if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
-	//  验证失败，将 $_SESSION["success"] 置为 false
+	// Failed, set $_SESSION["success"] to false
 	$_SESSION["success"] = false;
 	echo("<meta http-equiv=refresh content='0; url=login.php'>");
 } else {
@@ -31,7 +31,7 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 		cellspacing="0">
 		<tr>
 			<TH align=left style="height:113px;"><a
-				href="index.php?s=<?php echo ''.$sn.''; ?>" title="首页"><IMG style="height:113px; width:auto;"
+				href="index.php?s=<?php echo ''.$sn.''; ?>" title="Index"><IMG style="height:113px; width:auto;"
 					src="images/logo.png" alt=""> </a>
 			</TH>
 		</tr>
@@ -40,32 +40,32 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 		<tr class="Title_style1" bgcolor="#92ccfd">
 			<td width="20%">
 				<div align="center">
-					<a href="./download.php?s=<?php echo ''.$sn.''; ?>">openvpn程序下载</a>
+					<a href="./download.php?s=<?php echo ''.$sn.''; ?>">openvpn Software Download</a>
 				</div>
 			</td>
 
 			<td width="20%">
 				<div align="center">
-					<a href="./doc/vpn-noncert.zip">openvpn证书文件下载</a>
+					<a href="./doc/vpn-noncert.zip">openvpn Certificate Download</a>
 				</div>
 			</td>
 
 			<td width="20%">
 				<div align="center">
 					<a href="./instruction.php?s=<?php echo ''.$sn.''; ?>"
-						target="_blank">openvpn使用说明</a>
+						target="_blank">openvpn Instruction</a>
 				</div>
 			</td>
 
 			<td width="15%">
 				<div align="center">
-					<a href="change.php?s=<?php echo ''.$sn.''; ?>">修改密码</a>
+					<a href="change.php?s=<?php echo ''.$sn.''; ?>">Change Password</a>
 				</div>
 			</td>
 
 			<td width="10%">
 				<div align="center">
-					<a href="logout.php?s=<?php echo ''.$sn.''; ?>">退出</a>
+					<a href="logout.php?s=<?php echo ''.$sn.''; ?>">Logout</a>
 				</div>
 			</td>
 
