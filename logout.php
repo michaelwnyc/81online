@@ -9,7 +9,7 @@ session_start();
 //  这种方法是将原来注册的某个变量销毁
 unset($_SESSION['admin']);
 session_destroy();
-echo("您已经登出,正跳转到登录页！");
+echo("You have logged out. Redirecting to login page.");
 echo("<meta http-equiv=refresh content='2; url=login.php'>"); 
 ?>
 </html>
