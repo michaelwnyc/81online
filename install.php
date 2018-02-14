@@ -8,7 +8,7 @@
 </head>
 <?php
 if(file_exists('./data/install.lock')){
-	echo("需要先删除data文件中的 install.lock 文件才能重新安装。");
+	echo("Need to delete data/install.lock to reinstall.");
 }
 else{
 	?>
@@ -23,33 +23,33 @@ else{
 					bgcolor="#FFFF99">
 					<tbody>
 						<tr>
-							<td align="right" height="25">主机名：&nbsp; <input tabindex="1"
+							<td align="right" height="25">Hostname:&nbsp; <input tabindex="1"
 								type="text" maxlength="20" size="20" name="hostname"
 								value="localhost">
 							</td>
 						</tr>
 						<tr>
-							<td align="right">数据库用户名：&nbsp; <input tabindex="2" type="text"
+							<td align="right">DB Username:&nbsp; <input tabindex="2" type="text"
 								maxlength="20" size="20" name="db_username">
 							</td>
 						</tr>
 						<tr>
-							<td align="right">数据库密码：&nbsp; <input tabindex="3"
+							<td align="right">DB Password:&nbsp; <input tabindex="3"
 								type="password" maxlength="20" size="20" name="db_password">
 							</td>
 						</tr>
 						<tr>
-							<td align="right">数据库名：&nbsp; <input tabindex="3" type="text"
+							<td align="right">DB Name:&nbsp; <input tabindex="3" type="text"
 								maxlength="20" size="20" name="db_name" value="openvpn">
 							</td>
 						</tr>
 						<tr>
-							<td align="right">管理员：&nbsp; <input tabindex="3" type="text"
+							<td align="right">Admin Username:&nbsp; <input tabindex="3" type="text"
 								maxlength="20" size="20" name="admin_username">
 							</td>
 						</tr>
 						<tr>
-							<td align="right">管理员密码：&nbsp; <input tabindex="3"
+							<td align="right">Admin Password:&nbsp; <input tabindex="3"
 								type="password" maxlength="20" size="20" name="admin_passwd">
 							</td>
 						</tr>
@@ -61,9 +61,9 @@ else{
 						<tr>
 							<td align="center" height="25"><input
 								style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; WIDTH: 65px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 18px"
-								type="submit" value="添加用户" name="install"> <input
+								type="submit" value="Add User" name="install"> <input
 								style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; WIDTH: 52px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 18px"
-								type="reset" value="重置" name="reset">
+								type="reset" value="Reset" name="reset">
 							</td>
 						</tr>
 					</tbody>
