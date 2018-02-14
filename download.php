@@ -2,7 +2,7 @@
 <html>
 <head>
 <?php include_once('header.php'); ?>
-<title>程序下载</title>
+<title>Software Download</title>
 </head>
 <body>
 	<?php 
@@ -10,7 +10,7 @@
 	if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 		//  验证失败，将 $_SESSION["success"] 置为 false
 		$_SESSION["success"] = false;
-		echo("您没有登录,正跳转到登录页");
+		echo("You are not logged in. Redirecting to login page.");
 		echo("<meta http-equiv=refresh content='2; url=login.php'>");
 		die();
 	}
