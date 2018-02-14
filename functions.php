@@ -69,7 +69,7 @@ function checklogin($username,$password){
 			echo("<meta http-equiv=refresh content='0; url=index.php?s=".$sn."'>");
 		}
 	} else {
-		echo("用户名密码错误!");
+		echo("Username and password don't match!");
 		//echo("<meta http-equiv=refresh content='3; url=login.php'>");
 	}
 }
@@ -77,8 +77,8 @@ function checklogin($username,$password){
 
 
 /**
- * 修改密码
- * 用旧密码先验证，再核对新密码和重复新密码是否一样
+ * Change Password
+ * Validate current password, and check if the new password confirmaton matches.
  */
 function pwchange($username,$oldpassword,$newpassword,$renewpassword){
 	$sql = "SELECT * FROM user WHERE password = password('$oldpassword') AND username = '$username'";
@@ -86,17 +86,17 @@ function pwchange($username,$oldpassword,$newpassword,$renewpassword){
 	$userInfo = mysql_fetch_array($result);
 
 	if($newpassword != $renewpassword){
-		echo('两次输入的新密码不正确,请重新输入!密码应在6-20位之间.');
+		echo('Password confirmation doesn\'t match. The password should be between 6-20 characters.');
 		//echo("<meta http-equiv=refresh content='2; url=change.php'>");
 	}else{
-		//如果密码正确，会有一行返回结果
+		//If password is correct, will have one row in result.
 		if(mysql_num_rows(mysql_query($sql))==1 ){
 			$sql="Update user set password=password('$newpassword') where username='$username'";
 			mysql_query($sql) or die(mysql_error());
-			echo('密码修改成功!正跳转到登录页');
+			echo('Success. Redirecting to home page.');
 			echo("<meta http-equiv=refresh content='2; url=login.php'>");
 		}else{
-			echo('旧密码不正确,请重新输入!正跳转回前一页');
+			echo('The current password is not correct. Redirecting back.');
 			//echo("<meta http-equiv=refresh content='2; url=change.php?s='.$sn.''>");
 		}
 	}
