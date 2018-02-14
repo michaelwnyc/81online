@@ -6,7 +6,7 @@
 <body>
 <?php
 if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
-	//  验证失败，将 $_SESSION["success"] 置为 false
+	//  Failed, set $_SESSION["success"] to false
 	$_SESSION["success"] = false;
 	echo("<meta http-equiv=refresh content='0; url=login.php'>");
 } else {
@@ -20,7 +20,7 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 			$i++;
 			if($i==4) break;
 		}
-		$units = array("字节","KB","MB","GB","TB");
+		$units = array("Byte","KB","MB","GB","TB");
 		$newsize=round($bytesize,2);
 		return("$newsize $units[$i]");
 	}
@@ -28,10 +28,10 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 	function actformat($value)
 	{
 		if ($value==1){
-			return "活跃";
+			return "Active";
 		}
 		else{
-			return "停用";
+			return "Suspended";
 		}
 	}
 	
@@ -51,19 +51,19 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 
 			<td width="25%">
 				<div align="left">
-					<a> 用户名</a>
+					<a> Username</a>
 				</div>
 			</td>
 
 			<td width="25%">
 				<div align="left">
-					<a> 开始时间</a>
+					<a> Start Time</a>
 				</div>
 			</td>
 
 			<td width="25%">
 				<div align="left">
-					<a> 统计周期</a>
+					<a> Period</a>
 				</div>
 			</td>
 
@@ -79,7 +79,7 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 
 			<td><?php echo $row[2] ?></td>
 
-			<td><?php echo $row[4] ?>天</td>
+			<td><?php echo $row[4] ?>Days</td>
 
 		</tr>
 		<tr></tr>
@@ -87,25 +87,25 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 
 			<td width="25%">
 				<div align="left">
-					<a> 用户状态</a>
+					<a> User Status</a>
 				</div>
 			</td>
 
 			<td width="25%">
 				<div align="left">
-					<a> 总流量</a>
+					<a> Total Quota</a>
 				</div>
 			</td>
 
 			<td width="25%">
 				<div align="left">
-					<a> 总使用量</a>
+					<a> Used Quota</a>
 				</div>
 			</td>
 
 			<td width="25%">
 				<div align="left">
-					<a> 剩余流量</a>
+					<a> Remaining Quota</a>
 				</div>
 			</td>
 		</tr>
@@ -119,7 +119,7 @@ if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 			<td><?php echo  sizeformat($row[6]) ?></td>
 		</tr>
 	</table>
-	<p align="center" class="Content_style1">本页面每5分钟刷新一次</p>
+	<p align="center" class="Content_style1">This page refreshes every 5 mins.</p>
 </div>
 <?php 
 mysqli_close($conn);
