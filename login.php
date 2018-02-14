@@ -20,15 +20,15 @@
                             <TABLE width=250 border=0> 
                                 <TBODY> 
                                     <TR> 
-                                        <TD align=center height=25>用户名： <INPUT tabIndex=1 maxLength=20 size=15 name=username></TD>
+                                        <TD align=center height=25>Username: <INPUT tabIndex=1 maxLength=20 size=15 name=username></TD>
                                     </TR>
                                     <TR> 
-                                        <TD align=center>&nbsp;&nbsp;&nbsp;密码： <INPUT tabIndex=2 type=password maxLength=20 size=15 name=password></TD>
+                                        <TD align=center>&nbsp;&nbsp;&nbsp;Password: <INPUT tabIndex=2 type=password maxLength=20 size=15 name=password></TD>
                                     </TR>
                                     <TR> 
                                         <TD align=center height=25>
-                                            <INPUT id=login style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(images/loginbutton.gif); BORDER-LEFT: 0px; WIDTH: 52px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 18px" type=submit value="登录" name=login>
-                                            <INPUT id=reset style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(images/loginbutton2.gif); BORDER-LEFT: 0px; WIDTH: 52px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 18px" type=reset value="重置" name=reset>
+                                            <INPUT id=login style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(images/loginbutton.gif); BORDER-LEFT: 0px; WIDTH: 52px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 18px" type=submit value="Login" name=login>
+                                            <INPUT id=reset style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(images/loginbutton2.gif); BORDER-LEFT: 0px; WIDTH: 52px; CURSOR: hand; BORDER-BOTTOM: 0px; HEIGHT: 18px" type=reset value="Reset" name=reset>
                                         </TD>
                                     </TR>
                                     <TR> 
