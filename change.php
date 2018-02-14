@@ -10,7 +10,7 @@
 	if (!(isset($_SESSION["success"]) && $_SESSION["success"] === true)) {
 		//  Failed, set $_SESSION["success"] to false
 		$_SESSION["success"] = false;
-		echo("You are not logged in. Redirect to home page.");
+		echo("You are not logged in. Redirecting to login page.");
 		echo("<meta http-equiv=refresh content='2; url=login.php'>");
 		die();
 	}
