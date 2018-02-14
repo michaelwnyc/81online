@@ -1,16 +1,16 @@
 <?php
 include("./data/config.inc.php");
-//  ·ÀÖ¹È«¾Ö±äÁ¿Ôì³É°²È«Òş»¼
+//  é˜²æ­¢å…¨å±€å˜é‡é€ æˆå®‰å…¨éšæ‚£
 $admin = false;
 session_id($_GET['s']);
 session_start();
-//  ÅĞ¶ÏÊÇ·ñµÇÂ½
+//  åˆ¤æ–­æ˜¯å¦ç™»é™†
 if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true) {
     echo "";
 } else {
-    //  ÑéÖ¤Ê§°Ü£¬½« $_SESSION["admin"] ÖÃÎª false
+    //  éªŒè¯å¤±è´¥ï¼Œå°† $_SESSION["admin"] ç½®ä¸º false
     $_SESSION["admin"] = false;
-    echo("ÄúÃ»ÓĞµÇÂ¼,ÕıÌø×ªµ½µÇÂ¼Ò³");
+    echo("You are not logged in. Redirecting to login page.");
     echo("<meta http-equiv=refresh content='2; url=login.php'>");
     die();
 }
@@ -22,18 +22,18 @@ if (get_magic_quotes_gpc())  {  $value = stripslashes($value);  }
 if (!is_numeric($value))  {  $value = "'" . mysql_real_escape_string($value) . "'";  }
 return $value;}
 
-//  ±íµ¥Ìá½»ºó...
+//  è¡¨å•æäº¤å...
 $posts = $_POST;
-//  Çå³ıÒ»Ğ©¿Õ°×·ûºÅ
+//  æ¸…é™¤ä¸€äº›ç©ºç™½ç¬¦å·
 foreach ($posts as $key => $value) {
     $posts[$key] = trim($value);
 }
 $username          =$_SESSION["username"];
-mysql_connect($db_host,$db_user,$db_pass) //ÌîĞ´mysqlÓÃ»§ÃûºÍÃÜÂë  
+mysql_connect($db_host,$db_user,$db_pass) //å¡«å†™mysqlç”¨æˆ·åå’Œå¯†ç   
    or die("Could not connect to MySQL server!");  
-mysql_select_db($db_name) //Êı¾İ¿âÃû  
+mysql_select_db($db_name) //æ•°æ®åº“å  
    or die("Could not select database!");  
-mysql_query('set names "gbk"'); //Êı¾İ¿âÄÚÊı¾İµÄ±àÂë 
+mysql_query('set names "gbk"'); //æ•°æ®åº“å†…æ•°æ®çš„ç¼–ç  
 $oldpassword =  mysql_real_escape_string($posts["oldpassword"]);
 $newpassword =  mysql_real_escape_string($posts["newpassword"]); 
 $renewpassword =  mysql_real_escape_string($posts["renewpassword"]);
@@ -42,16 +42,16 @@ $result = mysql_query($sql) or die ("wrong");
 $userInfo = mysql_fetch_array($result); 
 
   if( $newpassword != $renewpassword){
-    echo('Á½´ÎÊäÈëµÄĞÂÃÜÂë²»ÕıÈ·,ÇëÖØĞÂÊäÈë!ÃÜÂëÓ¦ÔÚ6-20Î»Ö®¼ä¡£ÕıÌø×ª»ØÇ°Ò»Ò³');
+    echo('Password confirmation doesn\'t match. The password should be between 6-20 characters. Redirecting back.');
     echo("<meta http-equiv=refresh content='2; url=change.php'>");
   }else{   
    if(mysql_num_rows( mysql_query($sql) )==1 ){
     $sql="Update user set password=password('$newpassword') where username='$username'";
     mysql_query($sql) or die(mysql_error());
-    echo('ÃÜÂëĞŞ¸Ä³É¹¦!ÕıÌø×ªµ½µÇÂ¼Ò³');
+    echo('Successfully changed the password. Redirecting to login page.');
     echo("<meta http-equiv=refresh content='2; url=login.php'>");
    }else{
-    echo('¾ÉÃÜÂë²»ÕıÈ·,ÇëÖØĞÂÊäÈë!ÕıÌø×ª»ØÇ°Ò»Ò³');
+    echo('The current password is not correct. Redirecting back.');
     echo("<meta http-equiv=refresh content='2; url=change.php'>");
    }
   }
