@@ -43,7 +43,7 @@ if(isset($_POST['install'])){
 		run_sql_file('./database.sql');
 	}
 	else{
-		echo "无法找到  install 文件夹中的 database.sql。请检查 install 文件夹的完整性。";
+		echo "Cannot locate install/database.sql. Please check the integrity of the install folder.";
 		break;
 	}
 	$admin_username = mysql_real_escape_string($posts['admin_username']);
@@ -55,14 +55,14 @@ if(isset($_POST['install'])){
 			password('$admin_passwd'), '$admin_email',  '3')";
 	$result=mysql_query($sql);
 	if(!$result){
-		echo("管理员添加失败！".mysql_errno());
+		echo("Failed to add admin user！".mysql_errno());
 		break;
 	}
 	else{
-		echo("管理员添加成功！\n
-				用户名：".mysql_real_escape_string($posts['admin_username'])."\n
-				密码：".mysql_real_escape_string($posts['admin_passwd'])."\n
-				邮箱：".mysql_real_escape_string($posts['email']));
+		echo("Successfully added admin user！\n
+				Username：".mysql_real_escape_string($posts['admin_username'])."\n
+				Password：".mysql_real_escape_string($posts['admin_passwd'])."\n
+				Email：".mysql_real_escape_string($posts['email']));
 	}
 	write_lock();
 	break;
