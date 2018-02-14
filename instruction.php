@@ -10,7 +10,7 @@
 	if (!(isset($_SESSION["success"]) && $_SESSION["success"] == true)) {
 		//  验证失败，将 $_SESSION["success"] 置为 false
 		$_SESSION["success"] = false;
-		echo("You are not logged in. Redirecting to home page.");
+		echo("You are not logged in. Redirecting to login page.");
 		echo("<meta http-equiv=refresh content='2; url=login.php'>");
 		die();
 	}
